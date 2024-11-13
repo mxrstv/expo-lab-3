@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import styled from 'styled-components/native';
 import React, {useState, useCallback} from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const data = [
   {
@@ -54,8 +55,7 @@ export default function ExperienceScreen() {
 
   return (
     <View style={styles.container}>
-      <ScrollView
-        scrollEnabled={false}
+      <SafeAreaView
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
         }
@@ -65,7 +65,7 @@ export default function ExperienceScreen() {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (<Item item={item}></Item>)}
         />
-      </ScrollView>
+      </SafeAreaView>
     </View>
   );
 };
